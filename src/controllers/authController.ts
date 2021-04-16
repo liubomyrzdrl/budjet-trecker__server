@@ -1,7 +1,7 @@
 import { getConnection } from "typeorm"
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { Request, Response} from 'express'
+import { Request, Response } from 'express'
 import { User } from '../entities/User'
 
 export const register = async (req: Request, res: Response) => {
@@ -53,11 +53,13 @@ export const login = async (req: Request, res: Response) => {
        
         if(user) {
           const validPassword = await bcrypt.compare(password, user.password)
-          if (!validPassword) return res.status(401).send({
+          if (!validPassword) {
+             res.status(401).send({
             error: {
               message: "Password is wrong"
               }               
             })
+          }
             const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET as string)
 
             res.status(200).header("auth-token", token).send({ 

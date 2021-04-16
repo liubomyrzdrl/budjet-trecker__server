@@ -59,7 +59,7 @@ export const create = async ( req: Request, res: Response) => {
     try {
       const { id } = req.query
       console.log('DEL', id)
-       await Entrie.delete({ id })
+       await Entrie.delete({  id: Number(id)  })
         // const entries =await Entrie.query(`
         //    SELECT * FROM entrie e WHERE e."userId"=1
         // `)
