@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 import { User } from '../entities/User'
 
+
 export const register = async (req: Request, res: Response) => {
 
   try { 
@@ -24,13 +25,10 @@ export const register = async (req: Request, res: Response) => {
         }, 
     )
    .returning("*")
-   .execute()
-  
+   .execute() 
  
-   const payload = { id: user.raw.id, username: user.raw.username }
-
+   const payload = { id: user.raw[0].id }
    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
-   console.log("in the dB", user.raw)
    res.status(200).send({ 
      data: user.raw,
      token

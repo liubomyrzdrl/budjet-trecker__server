@@ -13,9 +13,9 @@ export const verifyToken = (req: any, res: Response, next: NextFunction) => {
         try {                     
             let verifiedUser: any = jwt.verify(token,  process.env.ACCESS_TOKEN_SECRET as string )
             const { id } = verifiedUser
-            
+            console.log('id TOKEN', verifiedUser)
             if (!verifiedUser) res.status(401).send('Unauthorized request')
-            req.user = { id: Number(id)}
+            req.user = { id }
         } catch (error) {
             console.log('err', error)
         }      

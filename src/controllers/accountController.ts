@@ -3,6 +3,7 @@ import { getConnection } from "typeorm"
 import { User } from '../entities/User'
 
 export const account = async ( req: any, res: Response) => {
+    console.log('Number(req.user.id)', req.user)
     try {
         const user = await getConnection()
         .getRepository(User)
