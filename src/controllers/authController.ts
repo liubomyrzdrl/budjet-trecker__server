@@ -6,8 +6,7 @@ import { User } from '../entities/User'
 
 export const register = async (req: Request, res: Response) => {
   console.log("in the dB", req)
-  try {
- 
+  try { 
    const {  username, email, password } = req.body
    const salt = await bcrypt.genSalt(10 )
    const hashPassword = await bcrypt.hash(password, salt)
@@ -29,7 +28,8 @@ export const register = async (req: Request, res: Response) => {
   
  
    const payload = { id: user.raw.id, username: user.raw.username }
-   const token = jwt.sign(payload, "dfgsdfgsdfgsdfg")
+
+   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    console.log("in the dB", user.raw)
    res.status(200).send({ 
      data: user.raw,

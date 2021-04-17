@@ -4,7 +4,7 @@ import { verifyToken } from "../middleware/auth";
 
 const router: Router = express.Router()   
         //router.route("/account").get(account)         
-        router.get("/account", verifyToken, account)     
+        router.get("/account", verifyToken, account )     
 
 
 export default router;
