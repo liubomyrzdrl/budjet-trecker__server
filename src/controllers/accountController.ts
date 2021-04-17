@@ -4,7 +4,6 @@ import { User } from '../entities/User'
 
 export const account = async ( req: any, res: Response) => {
     try {
-        const { id } = req.body
         const user = await getConnection()
         .getRepository(User)
         .createQueryBuilder("user")
@@ -13,7 +12,6 @@ export const account = async ( req: any, res: Response) => {
         res.status(200).send({ 
             data: user          
         })
-        console.log('ACCOUNT', req.user.id)
     } catch (error) {
         console.log("Error", error)
     }

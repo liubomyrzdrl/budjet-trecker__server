@@ -5,7 +5,7 @@ import { Request, Response } from 'express'
 import { User } from '../entities/User'
 
 export const register = async (req: Request, res: Response) => {
-  console.log("in the dB", req)
+
   try { 
    const {  username, email, password } = req.body
    const salt = await bcrypt.genSalt(10 )
