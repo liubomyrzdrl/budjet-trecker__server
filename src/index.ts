@@ -32,6 +32,10 @@ const main = async () => {
   app.use("/", accountRouter)
   app.use("/auth", authRouter)
   app.use("/entries", entrieRouter)
+
+  app.get("/", (req, res) =>  {
+      res.send('Test')
+  })
   
   app.listen(PORT, () => {
     console.log(`Server listen on post:${PORT}`)
