@@ -33,7 +33,7 @@ const main = async () => {
   app.use("/auth", authRouter)
   app.use("/entries", entrieRouter)
 
-  app.get("/", (req, res) =>  {
+  app.get("/", (_, res) =>  {
       res.send('Test')
   })
   
