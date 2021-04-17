@@ -27,7 +27,7 @@ const main = async () => {
 
  });
   app.use(cors({
-    
+    origin: true
   }))
   app.use(bodyParser.json())
   
