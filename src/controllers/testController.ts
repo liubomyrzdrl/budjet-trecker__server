@@ -1,8 +1,4 @@
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
-import { User } from '../entities/User'
-
 
 export const reg = async (req: Request, res: Response) => {
 
@@ -37,9 +33,7 @@ export const reg = async (req: Request, res: Response) => {
          username,
          email,
          password
-     }
-      
-  
+     }  
   });
 
   } catch (err) {
