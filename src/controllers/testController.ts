@@ -1,28 +1,30 @@
 import { Request, Response } from 'express'
-import { User } from '../entities/User';
+import { User } from '../entities/User'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
 export const reg = async (req: Request, res: Response) => {
 
   try { 
    const {  username, email, password } = req.body
-//    const salt = await bcrypt.genSalt(10 )
-//    const hashPassword = await bcrypt.hash(password, salt)
+   const salt = await bcrypt.genSalt(10 )
+   const hashPassword = await bcrypt.hash(password, salt)
 
    const user = await User.createQueryBuilder()   
       .insert()
       .values({
            username,
            email, 
-           password 
+           password: hashPassword
       })
       .returning('*')
       .execute()
- 
-//  console.log('User', user)
-//    const payload = { id: user.raw[0].id }
-//    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
+
+   const payload = { id: user.raw[0].id }
+   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
-     data: user
+     data: user.raw[0],
+     token
    });
 
   } catch (err) {
