@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@mapbox/node-pre-gyp@^1.0.0":
+"@mapbox/node-pre-gyp@^1.0.0", "@mapbox/node-pre-gyp@^1.0.1":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.3.tgz#c740c23ec1007b9278d4c28f767b6e843a88c3d3"
   integrity sha512-9dTIfQW8HVCxLku5QrJ/ysS/b2MdYngs9+/oPrOTLvp3TrggdANYVW2h8FGJGDf0J7MYfp44W+c90cVJx+ASuA==
@@ -38,6 +38,11 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@phc/format@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@phc/format/-/format-1.0.0.tgz#b5627003b3216dc4362125b13f48a4daa76680e4"
+  integrity sha512-m7X9U6BG2+J+R1lSOdCiITLLrxm+cWlNI3HUFA92oLO77ObGNzaKdh8pMLqdZcshtkKuV84olNNXDfMc4FezBQ==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -54,6 +59,13 @@
   integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
   dependencies:
     defer-to-connect "^1.0.1"
+
+"@types/argon2@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@types/argon2/-/argon2-0.15.0.tgz#e149cb42fb0a4cb1a4d62f8a22309b4c824bd808"
+  integrity sha1-4UnLQvsKTLGk1i+KIjCbTIJL2Ag=
+  dependencies:
+    argon2 "*"
 
 "@types/bcryptjs@^2.4.2":
   version "2.4.2"
@@ -313,6 +325,16 @@ arg@^4.1.0:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"
   integrity sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
+
+argon2@*, argon2@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/argon2/-/argon2-0.27.2.tgz#f334ca15aee748739ac81f76b85d197841e8cdcc"
+  integrity sha512-evnzS/Q9rj6ahaaCJjLDoJo9ZuXHhVL2BrBz3wFHb5/i9zAJovBuIY+5t2En7tJjhFXs4O3rUZDeGZxBiDOLwQ==
+  dependencies:
+    "@mapbox/node-pre-gyp" "^1.0.1"
+    "@phc/format" "^1.0.0"
+    node-addon-api "^3.0.2"
+    opencollective-postinstall "^2.0.3"
 
 argparse@^2.0.1:
   version "2.0.1"
@@ -1472,7 +1494,7 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-node-addon-api@^3.1.0:
+node-addon-api@^3.0.2, node-addon-api@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-3.1.0.tgz#98b21931557466c6729e51cb77cd39c965f42239"
   integrity sha512-flmrDNB06LIl5lywUz7YlNGZH/5p0M7W28k8hzd9Lshtdh1wshD2Y+U4h9LD6KObOy1f+fEVdgprPrEymjM5uw==
@@ -1567,6 +1589,11 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   dependencies:
     wrappy "1"
+
+opencollective-postinstall@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
+  integrity sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==
 
 p-cancelable@^1.0.0:
   version "1.1.0"

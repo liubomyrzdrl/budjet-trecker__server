@@ -1,35 +1,25 @@
-import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
 import { User } from '../entities/User'
+import argon2 from 'argon2'
 
 
 export const register = async (req: Request, res: Response) => {
 
   try { 
-   const {  username, email, password } = req.body
-   const salt = await bcrypt.genSalt(10 )
-   const hashPassword = await bcrypt.hash(password, salt)
+   const {  username, email, password } = req.body 
+   const hashedPassword = await argon2.hash(password)
 
    const user = await User.createQueryBuilder()   
       .insert()
       .values({
            username,
            email, 
-           password: hashPassword 
+           password: hashedPassword 
       })
       .returning('*')
       .execute()
-  //   getConnection()
-  //  .createQueryBuilder()
-  //  .insert()
-  //  .into(User)
-  //  .values(
-  //      , 
-  //   )
-  //  .returning("*")
-  //  .execute() 
- console.log('User', user)
+ 
    const payload = { id: user.raw[0].id }
    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
@@ -51,7 +41,8 @@ export const login = async (req: Request, res: Response) => {
         .getOne()
        
         if(user) {
-          const validPassword = await bcrypt.compare(password, user.password)
+          const validPassword =  await argon2.verify(password, user.password)
+         
           if (!validPassword) {
              res.status(401).send({
             error: {
