@@ -53,7 +53,7 @@ export const login = async (req: Request, res: Response) => {
 
             res.send({ 
               data: user,
-              "token": token 
+              token 
             })
           
         }
