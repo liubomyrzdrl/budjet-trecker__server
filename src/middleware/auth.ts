@@ -11,7 +11,7 @@ export const verifyToken = (req: any, res: Response, next: NextFunction) => {
         token = token.split(' ')[1] 
         if (token === 'null' || !token) res.status(401).send('Unauthorized request')
         try {                     
-            let verifiedUser: any = jwt.verify(token,"sdfgsdfgsdfgsdfg" )
+            let verifiedUser: any = jwt.verify(token, "sdfgsdfgsdfgsdfg" )
             const { id } = verifiedUser
             console.log('id TOKEN', verifiedUser)
             if (!verifiedUser) res.status(401).send('Unauthorized request')

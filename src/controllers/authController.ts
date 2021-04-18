@@ -3,14 +3,13 @@ import { Request, Response } from 'express'
 import { User } from '../entities/User'
 import argon2 from 'argon2'
 
-
 export const register = async (req: Request, res: Response) => {
 
   try { 
    const {  username, email, password } = req.body 
    const hashedPassword = await argon2.hash(password)
 
-   const user = await User.createQueryBuilder()   
+   const user = await User.createQueryBuilder("user")   
       .insert()
       .values({
            username,
@@ -35,12 +34,11 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body
-    const user =  await User.createQueryBuilder()        
+    const user =  await User.createQueryBuilder("user")        
         .where("user.email = :email", { email })
         .getOne()
-       
         if(user) {
-          const validPassword =  await argon2.verify(password, user.password)
+          const validPassword =  await argon2.verify( user.password,password,)
          
           if (!validPassword) {
              res.status(401).send({
