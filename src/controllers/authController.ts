@@ -67,9 +67,6 @@ export const login = async (req: Request, res: Response) => {
             })
           
         }
-
-    //const data = await Bank.create(req.body);
-    //res.send(data);
   } catch (err) {
     console.log("Error", err);
   }

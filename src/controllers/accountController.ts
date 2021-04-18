@@ -16,7 +16,8 @@ export const account = async ( req: any, res: Response) => {
         .getRepository(User)
         .createQueryBuilder("user")
         .where("user.id = :id", { id: Number(req.user.id)})
-        .getOne()      
+        .getOne()  
+            
         res.send({ 
             data: user          
         })
