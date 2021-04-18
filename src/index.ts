@@ -4,17 +4,12 @@ import { createConnection } from "typeorm"
 // import typeormConfig from './typeorm.config'
 import { PORT } from "./constants";
 import cors from "cors"
-import dotenv from 'dotenv'
 import authRouter from "./routes/authRouter";
 import entrieRouter from "./routes/entrieRouter"
 import accountRouter from "./routes/accountRouter";
 
 const main = async () => {
   const app = express()
-  let dot = dotenv.config()
-  if (dot.error) {
-    throw dot.error;
-  }
   await createConnection({
   type: "postgres",
   host: "ec2-54-74-156-137.eu-west-1.compute.amazonaws.com",
