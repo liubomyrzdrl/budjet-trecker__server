@@ -23,6 +23,7 @@ const main = async () => {
   synchronize: true,
   logging: true,
   entities: ["dist/entities/*.{ts,js}"], 
+
   url: "postgres://qzdaoiomewrxjn:13172cbcfd564553a3d2ab072702f2e3e047e81de3fb7729c2433cb75475d856@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/dcuva41horg1mv"
 
  });
