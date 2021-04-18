@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { User } from 'src/entities/User'
-import jwt from 'jsonwebtoken'
+// import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
 export const reg = async (req: Request, res: Response) => {
@@ -20,11 +20,10 @@ export const reg = async (req: Request, res: Response) => {
       .returning('*')
       .execute()
  
-   const payload = { id: user.raw[0].id }
-   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
+//    const payload = { id: user.raw[0].id }
+//    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
     data: user.raw,
-    token
   });
 
   } catch (err) {
