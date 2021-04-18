@@ -20,7 +20,7 @@ export const register = async (req: Request, res: Response) => {
       .returning('*')
       .execute()
  
-   const payload = { id: user.raw[0].id }
+   //const payload = { id: user.raw[0].id }
   // const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
      data: user.raw,
