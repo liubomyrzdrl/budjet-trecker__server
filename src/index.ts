@@ -11,7 +11,10 @@ import accountRouter from "./routes/accountRouter";
 
 const main = async () => {
   const app = express()
-  dotenv.config()
+  let dot = dotenv.config()
+  if (dot.error) {
+    throw dot.error;
+  }
   await createConnection({
   type: "postgres",
   host: "ec2-54-74-156-137.eu-west-1.compute.amazonaws.com",
