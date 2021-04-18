@@ -8,24 +8,27 @@ export const register = async (req: Request, res: Response) => {
 
   try { 
    const {  username, email, password } = req.body 
-   //const hashedPassword = await argon2.hash(password)
+  //  const hashedPassword = await argon2.hash(password)
 
-   const user = await User.createQueryBuilder()   
-      .insert()
-      .values({
-           username,
-           email, 
-           password
-      })
-      .returning('*')
-      .execute()
+  //  const user = await User.createQueryBuilder()   
+  //     .insert()
+  //     .values({
+  //          username,
+  //          email, 
+  //          password: hashedPassword 
+  //     })
+  //     .returning('*')
+  //     .execute()
  
-   const payload = { id: user.raw[0].id }
-   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
+  //  const payload = { id: user.raw[0].id }
+  //  const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
-     data: user.raw,
-     token
+    email,password,username
   });
+  //  res.send({ 
+  //    data: user.raw,
+  //    token
+  // });
 
   } catch (err) {
     console.log("Error", err);
@@ -52,7 +55,7 @@ export const login = async (req: Request, res: Response) => {
             const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET as string)
 
             res.send({ 
-               data: user,
+              data: user,
               "token": token 
             })
           
