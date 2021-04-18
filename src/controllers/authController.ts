@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+
 import { Request, Response } from 'express'
 import { User } from '../entities/User'
 import argon2 from 'argon2'
@@ -21,10 +21,9 @@ export const register = async (req: Request, res: Response) => {
       .execute()
  
    const payload = { id: user.raw[0].id }
-   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
+  // const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
      data: user.raw,
-     token
   
   });
 
@@ -50,11 +49,11 @@ export const login = async (req: Request, res: Response) => {
               }               
             })
           }
-            const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET as string)
+           // const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET as string)
 
             res.send({ 
               data: user,
-              "token": token 
+             // "token": token 
             })
           
         }
