@@ -29,7 +29,7 @@ export const register = async (req: Request, res: Response) => {
  
    const payload = { id: user.raw[0].id }
    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
-   res.status(200).send({ 
+   res.send({ 
      data: user.raw,
      token
   
@@ -60,7 +60,7 @@ export const login = async (req: Request, res: Response) => {
           }
             const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET as string)
 
-            res.status(200).header("auth-token", token).send({ 
+            res.send({ 
               data: user,
               "token": token 
             })
