@@ -1,4 +1,3 @@
-import { getConnection } from "typeorm"
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
