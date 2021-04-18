@@ -7,6 +7,7 @@ import cors from "cors"
 import dotenv from 'dotenv'
 import authRouter from "./routes/authRouter";
 import entrieRouter from "./routes/entrieRouter";
+import testRouter from "./routes/testRouter";
 import accountRouter from "./routes/accountRouter";
 
 const main = async () => {
@@ -32,6 +33,7 @@ const main = async () => {
   
   app.use("/", accountRouter)
   app.use("/auth", authRouter)
+  app.use("/test", testRouter)
   app.use("/entries", entrieRouter)
   
   app.listen(PORT, () => {

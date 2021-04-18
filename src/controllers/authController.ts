@@ -67,6 +67,7 @@ export const login = async (req: Request, res: Response) => {
             })
           
         }
+
   } catch (err) {
     console.log("Error", err);
   }
