@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { User } from '../entities/User';
 
 export const reg = async (req: Request, res: Response) => {
 
@@ -7,34 +8,22 @@ export const reg = async (req: Request, res: Response) => {
 //    const salt = await bcrypt.genSalt(10 )
 //    const hashPassword = await bcrypt.hash(password, salt)
 
-//    const user = await User.createQueryBuilder()   
-//       .insert()
-//       .values({
-//            username,
-//            email, 
-//            password: hashPassword 
-//       })
-//       .returning('*')
-//       .execute()
-//   //   getConnection()
-//   //  .createQueryBuilder()
-//   //  .insert()
-//   //  .into(User)
-//   //  .values(
-//   //      , 
-//   //   )
-//   //  .returning("*")
-//   //  .execute() 
+   const user = await User.createQueryBuilder()   
+      .insert()
+      .values({
+           username,
+           email, 
+           password 
+      })
+      .returning('*')
+      .execute()
+ 
 //  console.log('User', user)
 //    const payload = { id: user.raw[0].id }
 //    const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
-     data: {
-         username,
-         email,
-         password
-     }  
-  });
+     data: user
+   });
 
   } catch (err) {
     console.log("Error", err);
