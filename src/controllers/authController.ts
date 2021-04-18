@@ -8,27 +8,24 @@ export const register = async (req: Request, res: Response) => {
 
   try { 
    const {  username, email, password } = req.body 
-  //  const hashedPassword = await argon2.hash(password)
+   const hashedPassword = await argon2.hash(password)
 
-  //  const user = await User.createQueryBuilder()   
-  //     .insert()
-  //     .values({
-  //          username,
-  //          email, 
-  //          password: hashedPassword 
-  //     })
-  //     .returning('*')
-  //     .execute()
+   const user = await User.createQueryBuilder()   
+      .insert()
+      .values({
+           username,
+           email, 
+           password: hashedPassword 
+      })
+      .returning('*')
+      .execute()
  
-  //  const payload = { id: user.raw[0].id }
-  //  const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
+   const payload = { id: user.raw[0].id }
+   const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET as string)
    res.send({ 
-    email,password,username
+     data: user.raw,
+    token
   });
-  //  res.send({ 
-  //    data: user.raw,
-  //    token
-  // });
 
   } catch (err) {
     console.log("Error", err);
