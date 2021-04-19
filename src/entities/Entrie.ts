@@ -8,7 +8,7 @@ export class Entrie  extends BaseEntity {
     id: number;
     @Column()
     
-    @Unique(['date'])
+
     @Column()
     date: string
 
