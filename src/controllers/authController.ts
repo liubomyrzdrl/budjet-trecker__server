@@ -23,7 +23,7 @@ export const register = async (req: Request, res: Response) => {
    const token = jwt.sign(payload, "sdfgsdfgsdfgsdfg")
    res.send({ 
      data: user.raw,
-    token
+     token
   });
 
   } catch (err) {

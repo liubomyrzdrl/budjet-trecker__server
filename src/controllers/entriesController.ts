@@ -6,10 +6,9 @@ export const get = async ( req: Request, res: Response) => {
     try {
       const { userId } = req.query
      
-        const entries = await Entrie.query(`
+      const entries = await Entrie.query(`
            SELECT * FROM entrie e WHERE e."userId"=${userId}
-        `)
-        console.log('entries', entries)
+      `)
       res.send(entries)
     } catch (error) {
       console.log('Error', error)  
@@ -19,13 +18,11 @@ export const get = async ( req: Request, res: Response) => {
 export const create = async ( req: Request, res: Response) => {
     try {
       const { catagorie, amount, userId } = req.body
-      console.log('CREATE',catagorie, amount)
         const createdUser = await Entrie.create({
           catagorie,
           amount,
           userId
         }).save()
-        console.log('CREATE ENTREIES', createdUser)
         res.send(createdUser)
       
     } catch (error) {
@@ -46,8 +43,6 @@ export const create = async ( req: Request, res: Response) => {
             .where("id = :id", { id })
             .returning("*")
             .execute()  
-      
-            console.log('updatedUser', updatedUser)
         res.send(updatedUser.raw[0])
       
     } catch (error) {
@@ -58,12 +53,8 @@ export const create = async ( req: Request, res: Response) => {
   export const del = async ( req: Request, res: Response) => {
     try {
       const { id } = req.query
-      console.log('DEL', id)
-       await Entrie.delete({  id: Number(id)  })
-        // const entries =await Entrie.query(`
-        //    SELECT * FROM entrie e WHERE e."userId"=1
-        // `)
-       
+     
+      await Entrie.delete({  id: Number(id)  })
       res.send(true)
     } catch (error) {
       console.log('Error', error)  

@@ -5,20 +5,24 @@ import { Entrie } from './Entrie'
 export class User extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id: number
 
     @Column()
-    username: string;
+    username: string
 
     @Column()
     @Unique(['email'])
-    email: string;
+    email: string
 
     @Column()
     @Unique(['password'])
-    password: string;
+    password: string
+
+    @Column()
+    @Unique(['date'])
+    date: string
 
     @OneToMany(() => Entrie, entrie => entrie.user)
-    entries: Entrie[];
+    entries: Entrie[]
 
 }
