@@ -9,6 +9,7 @@ export class Entrie  extends BaseEntity {
     @Column()
     
     @Unique(['date'])
+    @Column()
     date: string
 
 
