@@ -17,11 +17,7 @@ export class User extends BaseEntity {
     @Column()
     @Unique(['password'])
     password: string
-
-    @Column()
-    @Unique(['date'])
-    date: string
-
+   
     @OneToMany(() => Entrie, entrie => entrie.user)
     entries: Entrie[]
 
