@@ -7,7 +7,7 @@ export const get = async ( req: Request, res: Response) => {
       const { userId, date } = req.query
     
       const entries = await Entrie.query(`
-           SELECT * FROM entrie e WHERE e."userId"= $1 and e.date= $2
+          SELECT * FROM entrie e WHERE e."userId"= $1 and e.date= $2
       `,[userId, date])
       res.send(entries)
     } catch (error) {
@@ -18,7 +18,7 @@ export const get = async ( req: Request, res: Response) => {
 export const create = async ( req: Request, res: Response) => {
     try {
       const { catagorie, amount, userId, date } = req.body
-        const createdUser = await Entrie.create({
+      const createdUser = await Entrie.create({
           catagorie,
           amount,
           userId,
