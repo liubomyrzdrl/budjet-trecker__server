@@ -10,9 +10,7 @@ export const account = async ( req: any, res: Response) => {
         .createQueryBuilder("user")
         .where("user.id = :id", { id: Number(req.user.id)})
         .getOne()      
-        res.status(200).send({ 
-            user          
-        })
+        res.status(200).send(user)
     } catch (error) {
         console.log("Error", error)
     }
