@@ -54,6 +54,12 @@ export const login = async (req: Request, res: Response) => {
               token 
             })
           
+        } else {
+          res.status(401).send({
+            error: {
+              message: "User not found"
+              }               
+            })
         }
 
   } catch (err) {
