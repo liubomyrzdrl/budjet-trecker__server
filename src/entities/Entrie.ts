@@ -8,7 +8,6 @@ export class Entrie  extends BaseEntity {
     id: number;
     @Column()
     
-
     @Column()
     date: string
 

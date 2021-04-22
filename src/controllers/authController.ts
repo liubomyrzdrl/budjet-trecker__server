@@ -4,7 +4,6 @@ import { User } from '../entities/User'
 import argon2 from 'argon2'
 
 export const register = async (req: Request, res: Response) => {
-
   try { 
    const {  username, email, password } = req.body 
    const hashedPassword = await argon2.hash(password)
@@ -18,16 +17,23 @@ export const register = async (req: Request, res: Response) => {
       })
       .returning('*')
       .execute()
- 
+      console.log("")
    const payload = { id: user.raw[0].id }
    const token = jwt.sign(payload, "sdfgsdfgsdfgsdfg")
+ 
    res.send({ 
-     data: user.raw,
+     data: user.raw[0],
      token
-  });
+     })  
 
   } catch (err) {
     console.log("Error", err);
+    res.status(401).send({
+      error: {
+        message: `User already exist`
+        }               
+      })
+    
   }
 }
 
