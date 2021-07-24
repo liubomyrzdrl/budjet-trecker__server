@@ -6,11 +6,11 @@ import { ConnectionOptions } from 'typeorm'
 
 export default {
     type: 'postgres',
-    "database": "de9spueqlas61b",
-    "host": "ec2-54-228-174-49.eu-west-1.compute.amazonaws.com",
+    "database": "d9mpkuvh5oa1b9",
+    "host": "ec2-52-86-2-228.compute-1.amazonaws.com",
     "port": 5432,
-    "username": "rcgqcnqqybbzxj",
-    "password": "f8a8e88ff4e1909aac2562e530f7ffa5357092896b2dede157633136f59edc5d",
+    "username": "cggpbentastmehj",
+    "password": "ffed1767d46f64fd9f7b0371bed296c1079ffb17cc523065a47f66be0d7888b5",
     "synchronize": true,
     "entities": [
 

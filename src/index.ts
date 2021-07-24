@@ -12,16 +12,16 @@ const main = async () => {
   const app = express()
   await createConnection({
   type: "postgres",
-  host: "ec2-63-34-97-163.eu-west-1.compute.amazonaws.com",
+  host: "ec2-52-86-2-228.compute-1.amazonaws.com",
   port: 5432,
-  username: "znahdmhdqadtzk",
-  password: "42bb9d7e029940cdd62836c6fda79eaf713ef897b2db6b1b4645752b90223860",
-  database: "d1lkvkrs7fpu2i",
+  username: "cggpbentastmeh",
+  password: "ffed1767d46f64fd9f7b0371bed296c1079ffb17cc523065a47f66be0d7888b5",
+  database: "d9mpkuvh5oa1b9",
   ssl: { rejectUnauthorized: false },
   synchronize: true,
   logging: true,
   entities: ["dist/entities/*.{ts,js}"], 
-  url: "postgres://znahdmhdqadtzk:42bb9d7e029940cdd62836c6fda79eaf713ef897b2db6b1b4645752b90223860@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d1lkvkrs7fpu2i"
+  url: "postgres://cggpbentastmeh:ffed1767d46f64fd9f7b0371bed296c1079ffb17cc523065a47f66be0d7888b5@ec2-52-86-2-228.compute-1.amazonaws.com:5432/d9mpkuvh5oa1b9"
 
  });
   app.use(cors({}))
