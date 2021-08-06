@@ -53,8 +53,7 @@ export const create = async ( req: Request, res: Response) => {
 
   export const del = async ( req: Request, res: Response) => {
     try {
-      const { id } = req.query
-     
+      const { id } = req.query     
       await Entrie.delete({  id: Number(id)  })
       res.send(true)
     } catch (error) {

@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { createConnection } from "typeorm"
-// import typeormConfig from './typeorm.config'
 import { PORT } from "./constants";
 import cors from "cors"
 import authRouter from "./routes/authRouter";

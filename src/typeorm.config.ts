@@ -1,8 +1,5 @@
 import 'reflect-metadata'
 import { ConnectionOptions } from 'typeorm'
-// import { User } from './entities/User'
-// import { Product } from './entities/Products'
-
 
 export default {
     type: 'postgres',
